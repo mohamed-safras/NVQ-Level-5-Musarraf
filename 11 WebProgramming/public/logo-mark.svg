@@ -1,0 +1,10 @@
+<svg width="80" height="80" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+  <!-- Icon-only mark (no wordmark) — for compact placements like a nav header or favicon -->
+  <g transform="translate(150,145)">
+    <rect x="-70" y="30" width="140" height="24" rx="5" fill="#B8862E"/>
+    <rect x="-57" y="0" width="114" height="24" rx="5" fill="#E0A83C"/>
+    <rect x="-45" y="-30" width="90" height="24" rx="5" fill="#F1D488"/>
+    <path d="M -75,58 Q 0,90 75,58" stroke="#F1EEE2" stroke-width="5" fill="none" stroke-linecap="round"/>
+    <path d="M -75,72 Q 0,104 75,72" stroke="#F1EEE2" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.5"/>
+  </g>
+</svg>

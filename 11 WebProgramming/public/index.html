@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STACKS — Library Automation System</title>
+<!-- Fonts: system font stack only (no external CDN dependency, works fully offline) -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <img class="brand-mark" src="logo-mark.svg" alt="STACKS logo" width="40" height="40">
+      <div class="brand-text">
+        <h1>STACKS</h1>
+        <p>Library Automation System</p>
+      </div>
+    </div>
+    <div class="masthead-status" id="apiStatus">
+      <span class="dot"></span> connecting…
+    </div>
+  </div>
+  <nav class="drawer-tabs" id="drawerTabs">
+    <button class="drawer-tab active" data-tab="catalog">Catalog</button>
+    <button class="drawer-tab" data-tab="members">Members</button>
+    <button class="drawer-tab" data-tab="loans">Loans</button>
+    <button class="drawer-tab" data-tab="overdue">Overdue</button>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ============= CATALOG ============= -->
+  <section class="panel active" id="panel-catalog">
+    <div class="panel-head">
+      <div>
+        <h2>Catalog</h2>
+        <p class="panel-sub">Every title held by the library, with live copy availability.</p>
+      </div>
+      <button class="btn-primary" id="btnShowAddBook">+ Add a book</button>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="bookSearch" placeholder="Search by title or author…">
+    </div>
+
+    <form class="index-form hidden" id="addBookForm">
+      <div class="index-form-title">New catalog entry</div>
+      <div class="form-grid">
+        <label>Title <input required name="title" placeholder="e.g. Clean Code"></label>
+        <label>Author <input required name="author" placeholder="e.g. Robert Martin"></label>
+        <label>Category <input required name="category" placeholder="e.g. Computer Science"></label>
+        <label>ISBN <input required name="isbn" placeholder="978-..."></label>
+        <label>Copies <input required name="copies" type="number" min="1" value="1"></label>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">Add to catalog</button>
+        <button type="button" class="btn-ghost" data-close-form>Cancel</button>
+      </div>
+    </form>
+
+    <div class="card-grid" id="bookGrid"></div>
+  </section>
+
+  <!-- ============= MEMBERS ============= -->
+  <section class="panel" id="panel-members">
+    <div class="panel-head">
+      <div>
+        <h2>Members</h2>
+        <p class="panel-sub">Registered members and their membership status.</p>
+      </div>
+      <button class="btn-primary" id="btnShowAddMember">+ Register a member</button>
+    </div>
+
+    <div class="toolbar">
+      <input type="search" id="memberSearch" placeholder="Search by name or email…">
+    </div>
+
+    <form class="index-form hidden" id="addMemberForm">
+      <div class="index-form-title">New membership card</div>
+      <div class="form-grid">
+        <label>First name <input required name="firstName"></label>
+        <label>Last name <input required name="lastName"></label>
+        <label>Email <input required type="email" name="email"></label>
+        <label>Phone <input required name="phone"></label>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">Register</button>
+        <button type="button" class="btn-ghost" data-close-form>Cancel</button>
+      </div>
+    </form>
+
+    <div class="index-list" id="memberList"></div>
+  </section>
+
+  <!-- ============= LOANS ============= -->
+  <section class="panel" id="panel-loans">
+    <div class="panel-head">
+      <div>
+        <h2>Loans</h2>
+        <p class="panel-sub">Issue a new loan, or return a book that's been brought back.</p>
+      </div>
+      <button class="btn-primary" id="btnShowIssueLoan">+ Issue a loan</button>
+    </div>
+
+    <form class="index-form hidden" id="issueLoanForm">
+      <div class="index-form-title">Issue slip</div>
+      <div class="form-grid">
+        <label>Member ID <input required type="number" name="memberId" placeholder="e.g. 1"></label>
+        <label>Book ID <input required type="number" name="bookId" placeholder="e.g. 2"></label>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn-primary">Issue loan</button>
+        <button type="button" class="btn-ghost" data-close-form>Cancel</button>
+      </div>
+    </form>
+
+    <div class="index-list" id="loanList"></div>
+  </section>
+
+  <!-- ============= OVERDUE ============= -->
+  <section class="panel" id="panel-overdue">
+    <div class="panel-head">
+      <div>
+        <h2>Overdue</h2>
+        <p class="panel-sub">Loans past their due date. Fines accrue at Rs. 30/day.</p>
+      </div>
+    </div>
+    <div class="index-list" id="overdueList"></div>
+  </section>
+
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

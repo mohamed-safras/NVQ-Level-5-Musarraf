@@ -1,0 +1,24 @@
+# --- Members ---
+curl http://localhost:8080/api/members
+curl "http://localhost:8080/api/members?search=kasun"
+curl -X POST http://localhost:8080/api/members -H "Content-Type: application/json" \
+  -d '{"firstName":"Amal","lastName":"Perera","email":"amal@mail.com","phone":"0771112222"}'
+curl -X PUT http://localhost:8080/api/members/1 -H "Content-Type: application/json" \
+  -d '{"phone":"0779998888","email":"new@mail.com"}'
+curl -X DELETE http://localhost:8080/api/members/1
+
+# --- Books ---
+curl http://localhost:8080/api/books
+curl "http://localhost:8080/api/books?search=clean"
+curl -X POST http://localhost:8080/api/books -H "Content-Type: application/json" \
+  -d '{"isbn":"978-1234","title":"Refactoring","category":"Computer Science","author":"Martin Fowler","copies":2}'
+curl -X PUT http://localhost:8080/api/books/1 -H "Content-Type: application/json" \
+  -d '{"title":"Clean Code (2nd Ed)","category":"Computer Science","author":"Robert Martin"}'
+curl -X DELETE http://localhost:8080/api/books/1
+
+# --- Loans ---
+curl http://localhost:8080/api/loans
+curl "http://localhost:8080/api/loans?overdue=true"
+curl -X POST http://localhost:8080/api/loans -H "Content-Type: application/json" \
+  -d '{"memberId":1,"bookId":1}'
+curl -X POST http://localhost:8080/api/loans/1/return
