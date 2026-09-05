@@ -44,7 +44,7 @@ import java.util.Map;
  * compile and run — only `javac`/`java`.
  */
 public class ApiServer {
-    private static final int PORT = 8080;
+    private static final int PORT = 8088;
 
     public static void main(String[] args) throws IOException {
         // ---- Composition root: wire concrete implementations behind interfaces ----

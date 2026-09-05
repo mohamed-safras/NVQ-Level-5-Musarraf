@@ -9,6 +9,6 @@ export async function checkStatus() {
     el.innerHTML = `<span class="dot"></span> API connected`;
   } catch (e) {
     el.className = "masthead-status err";
-    el.innerHTML = `<span class="dot"></span> API unreachable — is ApiServer running on :8080?`;
+    el.innerHTML = `<span class="dot"></span> API unreachable — is ApiServer running on :8088?`;
   }
 }
