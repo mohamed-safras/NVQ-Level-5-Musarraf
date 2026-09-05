@@ -27,7 +27,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ApiServer {
-    private static final int PORT = 8080;
+    private static final int PORT = 8088;
 
     public static void main(String[] args) throws IOException {
         InMemoryMemberRepository memberRepository = new InMemoryMemberRepository();
